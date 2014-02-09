@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/MainFragment_drawerImage"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#c92064"
+        android:src="@drawable/drawer_shadow" />
+
+    <LinearLayout
+        android:id="@+id/MainFragment_admobLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/MainFragment_newQuoteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:text="@string/user_quote_add" />
+
+            <ImageButton
+                android:id="@+id/MainFragment_refreshButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@android:drawable/ic_popup_sync" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/MainFragment_contentList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+        </ListView>
+
+    </LinearLayout>
+
+</LinearLayout>

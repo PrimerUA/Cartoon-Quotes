@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Top Quotes</string>
+    <string name="app_market_url">https://play.google.com/store/apps/details?id=top.quotes.pkg</string>
+    <string name="admob_publisher_id">a1500d45bf6f676</string>
+    <string name="ivengo_publisher_id">aj6m6dylrygc</string>
+    <string name="menu_label">Меню</string>
+    <string name="fragment_stream">Поток цитат</string>
+    <string name="fragment_quiz">Викторина</string>
+    <string name="fragment_top">Ваша оценка</string>
+    <string name="prefs">Prefs</string>
+    <string name="prefs_language">language</string>
+    <string name="prefs_theme">theme</string>
+    <string name="prefs_daily">daily</string>
+
+    <string-array name="shows_array_rus">
+        <item>>>> Поток цитат</item>
+        <item>>>> Викторина</item>
+        <item>>>> Топ избранных</item>
+        <item>Борджиа</item>
+        <item>Игра Престолов</item>
+        <item>Доктор Хаус</item>
+        <item>Калифорникейшн</item>
+        <item>Как Я Встретил Вашу Маму</item>
+        <item>Теория Большого Взрыва</item>
+        <item>Декстер</item>
+        <item>Сплетница</item>
+        <item>Сверхъестественное</item>
+        <item>Отбросы</item>
+        <item>Грань</item>
+        <item>Клиника</item>
+        <item>Интерны</item>
+        <item>Счастливы Вместе</item>
+        <item>Дневники Вампира</item>
+        <item>Секс В Большом Городе</item>
+        <item>Хор</item>
+        <item>Доктор Кто</item>
+        <item>Настоящая Кровь</item>
+        <item>Друзья</item>
+        <item>Остаться В Живых</item>
+        <item>Отчаянные Домохозяйки</item>
+        <item>Зачарованные</item>
+        <item>Два С Половиной Человека</item>
+        <item>Карпов</item>
+        <item>Спартак</item>
+        <item>Шерлок</item>
+        <item>Универ</item>
+        <item>Холм Одного Дерева</item>
+        <item>Милые Обманщицы</item>
+    </string-array>
+    <string-array name="shows_array_eng">
+        <item>>>> Поток цитат</item>
+        <item>>>> Викторина</item>
+        <item>>>> Топ избранных</item>
+        <item>The Borgias</item>
+        <item>Game of Thrones</item>
+        <item>House M.D.</item>
+        <item>Californication</item>
+        <item>How I Met Your Mother</item>
+        <item>The Big Bang Theory</item>
+        <item>Dexter</item>
+        <item>Gossip Girl</item>
+        <item>Supernatural</item>
+        <item>Misfits</item>
+        <item>Fringe</item>
+        <item>Scrubs</item>
+        <item>Интерны</item>
+        <item>Счастливы Вместе</item>
+        <item>Vampire Diaries</item>
+        <item>Sex And The City</item>
+        <item>Glee</item>
+        <item>Doctor Who</item>
+        <item>True Blood</item>
+        <item>Friends</item>
+        <item>LOST</item>
+        <item>Desperate Housewifes</item>
+        <item>Charmed</item>
+        <item>Two And A Half Men</item>
+        <item>Карпов</item>
+        <item>Spartacus</item>
+        <item>Sherlock</item>
+        <item>Универ</item>
+        <item>One Tree Hill</item>
+        <item>Pretty Little Liars</item>
+    </string-array>
+    <string-array name="language_list">
+        <item>РУС</item>
+        <item>АНГЛ</item>
+    </string-array>
+    <string-array name="language_list_full">
+        <item>Русский</item>
+        <item>Английский</item>
+    </string-array>
+
+    <string name="add_button">Загрузить еще</string>
+    <string name="score">Очки:</string>
+    <string name="attempts">Попытки:</string>
+    <string name="correct_answer_title">Молодец!</string>
+    <string name="incorrect_answer_title">Вы ошиблись</string>
+    <string name="correct_answer_message">- это правильный ответ!</string>
+    <string name="incorrect_answer_message">- неправильный ответ. Эта цитат из сериала</string>
+    <string name="continue_quiz">Далее</string>
+    <string name="finish_quiz">Завершить</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="score_title">Таблица рекордов</string>
+    <string name="clear_scores">Очистить рекорды</string>
+    <string name="switch_language_rus">РУС</string>
+    <string name="switch_language_eng">ENG</string>
+    <string name="share_text">(@top_quotes_apps) Top Quotes для Андроид http://goo.gl/uuyUC</string>
+    <string name="share_with">Поделиться с помощью:</string>
+    <string name="exit_title">Вы уверены что хотите выйти?</string>
+    <string name="exit_text">Желаем Вам приятного дня! Возвращайтесь скорее и расскажите друзьям об этом приложении:)</string>
+    <string name="rate_app">Оценить</string>
+    <string name="retry_quiz">Начать заново</string>
+    <string name="clear_rating">Очистить рейтинг</string>
+    <string name="emptyText">Нажимайте на звездочки на цитатах для добавления их в список избранных! :)</string>
+    <string name="prefs_title">Настройки</string>
+    <string name="theme_chooser">Темы оформления</string>
+    <string name="default_language">Язык по умолчанию</string>
+    <string name="theme_pink">Розовая пантера</string>
+    <string name="theme_white">Прозрачная сталь</string>
+    <string name="theme_orange">Оранжевый свет</string>
+    <string name="language_rus">Русский</string>
+    <string name="language_eng">Английский</string>
+    <string name="more_title">Еще от автора</string>
+    <string name="daily_quote">Цитата дня при запуске приложения</string>
+    <string name="daily_screen_title">Цитата дня</string>
+    <string name="please_rate">Если Вам нравится это приложение, пожалуйста оцените его. Благодарим за поддержку!</string>
+    <string name="do_rate_it">Оценить Top Quotes</string>
+    <string name="remind">Напомнить позже</string>
+    <string name="lazy">Спасибо, но лень</string>
+    <string name="more_brain">Brain Break</string>
+    <string name="more_brain_text">Мнимизируйте стресс и улучшайте свою производительность</string>
+    <string name="more_dev">Еще от автора</string>
+    <string name="more_truth">Игра в правду</string>
+    <string name="more_vitacode">Vitacode</string>
+    <string name="more_95q">Вечерний Квартал</string>
+    <string name="more_vk">Наша группа Вконтакте</string>
+    <string name="more_blog">Блог разработчика</string>
+    <string name="more_archangel">Archangel Веб-студия</string>
+    <string name="more_vitasolution">VitaSolution</string>
+    <string name="more_archangel_text">Начинаете свой бизнес? С сайтом Вы найдете больше клиентов! Обращайтесь к професcионалам</string>
+    <string name="more_vitasolution_text">Ваши знания умеют делать деньги - зарабатывайте, помогая другим решить их вопросы и задачи</string>
+    <string name="more_truth_text">Собрались компанией друзей? Узнайте всю правду о них с помощью уникальной этой игры</string>
+    <string name="more_vitacode_text">Разшифруй свой номер мобильного - узнай как он звучит</string>
+    <string name="more_quarter_text">Бесконечный заряд позитива от студии Квартал 95 Киев!</string>
+    <string name="more_blog_text">Новости, статьи об Андроид, путешествиях, бесплатная музыка и многое другое в этом блоге</string>
+    <string name="more_vk_text">Все про Андроид здесь. Множество обзоров, подарков и полезной информации. Подписывайтесь!</string>
+    <string name="more_vktq_button">Top Quotes Вконтакте</string>
+    <string name="rate_title_text">Оцените Top Quotes</string>
+    <string name="rate_content_text">Если Вам понравился цитатник Top Quotes, пожалуйста, оцените его в 5 звезд на следующем экране. Вы также можете указать какой сериал стоит в дальнейшем добавить в Вашем отзыве:)</string>
+    <string name="more_screen_title">Еще от автора</string>
+    <string name="welcome_screen_main_title">Добро пожаловать в\nTop Quotes!</string>
+    <string name="welcome_screen_main_text">В этом приложении собраны лучшие цитаты из 30 Ваших самых любимых сериалов. Читайте цитаты других пользователей либо добавляйте свои из Ваших любимых сериалов</string>
+    <string name="welcome_screen_shows_title">Меню сериалов</string>
+    <string name="welcome_screen_shows_text">Проведите пальцем по экрану слева на право чтобы открыть меню выбора сериалов</string>
+    <string name="welcome_screen_quiz_title">Играйте в Викторину</string>
+    <string name="welcome_screen_quiz_text">Проверьте свои знания сериалов в новой Викторине цитат. У Вас будет всего 5 попыток, соревнуйтесь с друзьями за больший счет</string>
+    <string name="welcome_screen_language_title">Выбор языка</string>
+    <string name="welcome_screen_language_text">Вы можете читать цитаты и играть в Викторину как на русском так и на английском языке. В любой момент смените язык в выпадающем списке на верхней панели экрана</string>
+    <string name="welcome_screen_settings_title">Меню настроек</string>
+    <string name="welcome_screen_settings_text">Нажмите кнопку в правом верхнем углу для выбора темы оформления, языка по умолчанию и опции получения Цитаты дня</string>
+    <string name="welcome_screen_social_title">Будьте социально-активными!</string>
+    <string name="welcome_screen_social_text">Делитесь понравившимися цитатами в социальных сетях и не забывайте поддерживать разработку приложения рейтингом на Google Play.\nБлагодарим за скачивание Top Quotes!</string>
+    <string name="welcome_screen_toast">Пожалуйста, дочитайте информацию до конца и нажмите Вперед</string>
+    <string name="welcome_screen_thanks">Спасибо. Вперед!</string>
+    <string name="google_connected">Авторизация выполнена</string>
+    <string name="google_disconnected">Деавторизация выполнена</string>
+    <string name="login_text">Нажмите Вход для продолжения</string>
+    <string name="logout_text">Выход из Google+</string>
+    <string name="user_quote_add">Добавить новую цитату</string>
+    <string name="user_quote_screen_title">Добавление новой цитаты</string>
+    <string name="user_quote_title">Название сериала*:</string>
+    <string name="user_quote_title_hint">Введите полное название сериала</string>
+    <string name="user_quote_text">Текст цитаты*:</string>
+    <string name="user_quote_text_hint">Введите цитату с указанием ее автора(ов)</string>
+    <string name="user_quote_season">Номер сезона:</string>
+    <string name="user_quote_episode">Номер серии:</string>
+    <string name="user_quote_dialog_title">Благодарим за Ваш вклад!</string>
+    <string name="user_quote_dialog_text">Ваша цитата была отправлена в нашу базу данных. Она появится в Потоке цитат сразу после прохождения модерации. Желаете добавить еще одну цитату?</string>
+    <string name="user_quote_dialog_add">Добавить еще</string>
+    <string name="user_quote_confirm_dialog_title">Подтверждение</string>
+    <string name="user_quote_confirm_dialog_text">Отправить эту цитату в общий Поток?</string>
+    <string name="user_quote_confirm_dialog_confirm">ДА!</string>
+    <string name="user_quote_failed_title">Не удалось отправить цитату</string>
+    <string name="user_quote_lang">Язык цитаты:</string>
+    <string name="user_quote_cancel_title">Отменить добавление цитаты?</string>
+    <string name="user_quote_cancel_text">Подтвердите отмену добавления новой цитаты в общий Поток</string>
+    <string name="user_quote_lang">Язык цитаты:</string>
+    <string name="registration_failed_title">Не удалось авторизироваться</string>
+    <string name="connection_check_text">Пожалуйста, проверьте Ваше интернет соединение и попытайтесь снова</string>
+    <string name="empty_fields">Поля название сериала и цитата должны быть заполнены</string>
+    <string name="connection">Соединение</string>
+    <string name="connection_posting_quote">Публикация цитаты...</string>
+    <string name="connection_loading_quote">Загрузка цитат...</string>
+    <string name="quote_season">Сезон</string>
+    <string name="quote_episode">Эпизод</string>
+    <string name="quote_by">от</string>
+    <string name="all_items_loaded">Конец списка</string>
+    <string name="news_screen_title">Новости этой версии</string>
+    <string name="news_screen_text">Теперь Вы можете добавлять свои цитаты в Поток цитат! Просто нажмите кнопку Добавить свою цитату и заполните все поля. Для этого Вам необходимо интернет соединение</string>
+    <string name="news_screen_block_1">Наш новый проект</string>
+    <string name="news_screen_text_block_1">VitaSolution - зарабатывайте РЕАЛЬНЫЕ деньги помогая другим людям решить их повседневные задачи или ответить на вопросы. Нажмите это сообщения чтобы начать прямо сейчас</string>
+    <string name="news_screen_block_2">Цитаты теперь Вконтакте</string>
+    <string name="news_screen_text_block_2">Присоединяйтесь к нашему сообществу Вконтакте и приглашайте друзей. Цитаты добавленные Вами в приложение также будут отображатся на стене сообщества от Вашего имени</string>
+    <string name="loggined_as">Вход выполнен:</string>
+
+</resources>
