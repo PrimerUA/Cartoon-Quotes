@@ -1,7 +1,7 @@
 package com.skylion.cartoon.util.controllers;
 
 import com.skylion.cartoon.data.ShowsList;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.support.v4.widget.DrawerLayout;
 
 public class BackgroundController {

@@ -1,6 +1,6 @@
 package com.skylion.cartoon.messages;
 
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

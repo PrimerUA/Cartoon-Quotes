@@ -11,7 +11,7 @@ import com.skylion.cartoon.data.ShowsList;
 import com.skylion.cartoon.util.PreferencesLoader;
 import com.skylion.cartoon.util.providers.QuoteRatingsProvider;
 import com.skylion.cartoon.util.providers.QuoteViewsProvider;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 
 public class DailyScreen extends Activity {
 

@@ -10,7 +10,7 @@ import com.skylion.cartoon.data.ShowsList;
 import com.skylion.cartoon.util.PreferencesLoader;
 import com.skylion.cartoon.util.Rating;
 import com.skylion.cartoon.util.controllers.LanguageController;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;

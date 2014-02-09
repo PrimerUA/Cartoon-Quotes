@@ -1,4 +1,4 @@
-package com.skylion.cartoon.server;	
+package com.skylion.cartoon.server;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.skylion.cartoon.entity.User;
 import com.skylion.cartoon.entity.UserQuote;
 
-
 public class Executor {
 
 	private Gson gson = new Gson();
@@ -31,8 +30,7 @@ public class Executor {
 	public int register(User user) {
 		try {
 			HttpPost httpPost = new HttpPost(url + "register.php");
-			StringEntity buff = new StringEntity(gson.toJson(user).toString(),
-					HTTP.UTF_8);
+			StringEntity buff = new StringEntity(gson.toJson(user).toString(), HTTP.UTF_8);
 			httpPost.setHeader("Accept", "application/json");
 			httpPost.setHeader("Content-type", "application/json");
 			httpPost.setEntity(buff);
@@ -49,10 +47,9 @@ public class Executor {
 
 	public boolean sendQuote(UserQuote quote) {
 		try {
-			HttpPost httpPost = new HttpPost(url + "post.php");
-			StringEntity buff = new StringEntity(gson.toJson(quote).toString(),
-					HTTP.UTF_8);
-			
+			HttpPost httpPost = new HttpPost(url + "postCartoon.php");
+			StringEntity buff = new StringEntity(gson.toJson(quote).toString(), HTTP.UTF_8);
+
 			httpPost.setHeader("Accept", "application/json");
 			httpPost.setHeader("Content-type", "application/json");
 			httpPost.setEntity(buff);
@@ -60,7 +57,7 @@ public class Executor {
 			HttpResponse response = new AsyncRequest().execute(httpPost).get();
 			if (response != null)
 				return getResPostQoute(response);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -70,8 +67,7 @@ public class Executor {
 	public List<UserQuote> list(int from, int length, int language) {
 		try {
 
-			Reader reader = getReader(getStream(url + "list.php?from=" + from
-					+ "&length=" + length + "&lang=" + language));
+			Reader reader = getReader(getStream(url + "listCartoon.php?from=" + from + "&length=" + length + "&lang=" + language));
 
 			if (reader != null) {
 				return parseLikesNumber(reader);

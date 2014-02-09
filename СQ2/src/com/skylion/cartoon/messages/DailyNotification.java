@@ -5,7 +5,7 @@ import com.skylion.cartoon.constants.ConstantsFacade;
 import com.skylion.cartoon.data.DailyQuote;
 import com.skylion.cartoon.util.Rating;
 import com.skylion.cartoon.util.providers.QuoteViewsProvider;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;

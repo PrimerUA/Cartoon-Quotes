@@ -7,7 +7,7 @@ import com.skylion.cartoon.util.controllers.LanguageController;
 import com.skylion.cartoon.util.controllers.LanguageController.LanguageChanger;
 import com.skylion.cartoon.util.providers.QuoteRatingsProvider;
 import com.skylion.cartoon.util.providers.QuoteViewsProvider;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;

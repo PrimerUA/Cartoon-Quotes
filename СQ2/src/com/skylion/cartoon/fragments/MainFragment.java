@@ -16,7 +16,7 @@ import com.skylion.cartoon.server.Executor;
 import com.skylion.cartoon.util.controllers.LanguageController;
 import com.skylion.cartoon.util.controllers.LanguageController.LanguageChanger;
 import com.skylion.cartoon.util.providers.ConnectionProvider;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -59,13 +59,13 @@ public class MainFragment extends CoreFragment implements OnClickListener {
 
 		getSherlockActivity().setTitle(getString(R.string.fragment_stream));
 
-		LanguageController.setOnLanguageChangedListener(new LanguageChanger() {
-
-			@Override
-			public void onLanguageChanged() {
-				updateContent();
-			}
-		});
+//		LanguageController.setOnLanguageChangedListener(new LanguageChanger() {
+//
+//			@Override
+//			public void onLanguageChanged() {
+//				updateContent();
+//			}
+//		});
 
 		return rootView;
 	}
@@ -120,7 +120,7 @@ public class MainFragment extends CoreFragment implements OnClickListener {
 			drawerImage.setBackgroundColor(Color.parseColor("#ff7400"));
 		}
 
-		getSherlockActivity().getSupportActionBar().setSelectedNavigationItem(getLanguage().ordinal());
+		//getSherlockActivity().getSupportActionBar().setSelectedNavigationItem(getLanguage().ordinal());
 
 		contentList.setOnScrollListener(new OnScrollListener() {
 			@Override

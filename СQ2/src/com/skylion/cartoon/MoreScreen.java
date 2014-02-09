@@ -10,10 +10,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.skylion.cartoon.util.PreferencesLoader;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 
 public class MoreScreen extends Activity {
 
+	private LinearLayout quotesLayout;
 	private LinearLayout truthLayout;
 	private LinearLayout vitacodeLayout;
 	private LinearLayout quarterLayout;
@@ -37,6 +38,7 @@ public class MoreScreen extends Activity {
 	private void activityInit() {
 		contentLayout = (LinearLayout) findViewById(R.id.MoreScreen_contentLayout);
 
+		quotesLayout = (LinearLayout) findViewById(R.id.MoreScreen_quotesLayout);
 		truthLayout = (LinearLayout) findViewById(R.id.MoreScreen_truthLayout);
 		vitacodeLayout = (LinearLayout) findViewById(R.id.MoreScreen_vitacodeLayout);
 		quarterLayout = (LinearLayout) findViewById(R.id.MoreScreen_quarterLayout);
@@ -48,6 +50,13 @@ public class MoreScreen extends Activity {
 		
 		vkButton = (Button) findViewById(R.id.MoreScreen_vkButton);
 
+		quotesLayout.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				visitUrl("https://play.google.com/store/apps/details?id=top.quotes.pkg");
+			}
+		});
+		
 		truthLayout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

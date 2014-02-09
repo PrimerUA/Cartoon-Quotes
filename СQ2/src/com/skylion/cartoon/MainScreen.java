@@ -26,7 +26,6 @@ import com.actionbarsherlock.view.MenuItem;
 import com.google.ads.AdRequest;
 import com.google.ads.AdSize;
 import com.google.ads.AdView;
-import com.ivengo.adv.AdvView;
 import com.skylion.cartoon.constants.ConstantsFacade;
 import com.skylion.cartoon.core.FragmentsGenerator;
 import com.skylion.cartoon.data.ShowsList;
@@ -40,7 +39,7 @@ import com.skylion.cartoon.util.controllers.DailyNotificationController;
 import com.skylion.cartoon.util.controllers.LanguageController;
 import com.skylion.cartoon.util.providers.ConnectionProvider;
 import com.skylion.cartoon.util.providers.QuoteRatingsProvider;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 
 public class MainScreen extends SherlockFragmentActivity {
 
@@ -51,8 +50,6 @@ public class MainScreen extends SherlockFragmentActivity {
 	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
 	private String[] mShowsTitles;
-
-	private AdvView advView;
 
 	private AdView adView;
 
@@ -71,9 +68,6 @@ public class MainScreen extends SherlockFragmentActivity {
 		DailyNotificationController.initNotification(this);
 		AppRater.app_launched(this);
 
-		advView = AdvView.create(this,  getString(R.string.ivengo_publisher_id)); // "test"); getString(R.string.ivengo_publisher_id)
-		advView.showBanner();
-		
 		initScreen();
 		setDrawerPanel(savedInstanceState);
 		setActionBar();
@@ -117,22 +111,22 @@ public class MainScreen extends SherlockFragmentActivity {
 		getSupportActionBar().setHomeButtonEnabled(true);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-		Context context = getSupportActionBar().getThemedContext();
-		ArrayAdapter<CharSequence> listAdapter = ArrayAdapter.createFromResource(context, R.array.language_list, R.layout.sherlock_spinner_item);
-		listAdapter.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
-		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-		getSupportActionBar().setListNavigationCallbacks(listAdapter, new OnNavigationListener() {
-
-			@Override
-			public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-				if (itemPosition == 0) {
-					LanguageController.setCurrentLanguage(LanguageController.RUS);
-				} else {
-					LanguageController.setCurrentLanguage(LanguageController.ENG);
-				}
-				return true;
-			}
-		});
+//		Context context = getSupportActionBar().getThemedContext();
+//		ArrayAdapter<CharSequence> listAdapter = ArrayAdapter.createFromResource(context, R.array.language_list, R.layout.sherlock_spinner_item);
+//		listAdapter.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
+//		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+//		getSupportActionBar().setListNavigationCallbacks(listAdapter, new OnNavigationListener() {
+//
+//			@Override
+//			public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+//				if (itemPosition == 0) {
+//					LanguageController.setCurrentLanguage(LanguageController.RUS);
+//				} else {
+//					LanguageController.setCurrentLanguage(LanguageController.ENG);
+//				}
+//				return true;
+//			}
+//		});
 	}
 
 	private void initScreen() {
@@ -296,12 +290,6 @@ public class MainScreen extends SherlockFragmentActivity {
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
-	}
-
-	@Override
-	public void onPause() {
-		super.onPause();
-		advView.dismiss();
 	}
 
 }

@@ -158,31 +158,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/m3"
                     android:gravity="center"
-                    android:text="@string/welcome_screen_language_title"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:typeface="serif" />
-
-                <TextView
-                    android:id="@+id/TextView03"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/m5"
-                    android:gravity="center"
-                    android:text="@string/welcome_screen_language_text"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <View
-                    android:id="@+id/View04"
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <TextView
-                    style="@style/text_quotes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/m3"
-                    android:gravity="center"
                     android:text="@string/welcome_screen_social_title"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:typeface="serif" />

@@ -3,7 +3,7 @@ package com.skylion.cartoon.messages;
 import com.skylion.cartoon.ScoresScreen;
 import com.skylion.cartoon.constants.ConstantsFacade;
 import com.skylion.cartoon.fragments.QuizFragment;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;

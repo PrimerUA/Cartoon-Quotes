@@ -3,7 +3,7 @@
     android:id="@+id/auth_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#aacfa064"
+    android:background="#cfcfa064"
     android:gravity="center"
     android:orientation="vertical" >
 

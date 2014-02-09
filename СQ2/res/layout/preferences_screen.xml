@@ -36,14 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/m5"
-                    android:text="@string/default_language"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                <View
-                    android:id="@+id/view1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
 
                 <TextView
                     android:id="@+id/textView1"
@@ -82,39 +75,10 @@
 
                 </RadioGroup>
 
-                <View
-                    android:id="@+id/View01"
-                    android:layout_width="wrap_content"
-                    android:layout_height="1dp"
-                    android:background="#dddddd" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/m5"
-                    android:text="@string/default_language"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-
                 <RadioGroup
                     android:id="@+id/radioGroup2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" >
-
-                    <RadioButton
-                        android:id="@+id/PreferencesScreen_languageRadioRussian"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="@string/language_rus"
-                        android:textStyle="italic" />
-
-                    <RadioButton
-                        android:id="@+id/PreferencesScreen_languageRadioEnglish"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/language_eng"
-                        android:textStyle="italic" />
 
                 </RadioGroup>
 
@@ -137,6 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
+                    android:layout_marginTop="@dimen/m5"
                     android:text="@string/daily_quote"
                     android:textStyle="italic" />
 

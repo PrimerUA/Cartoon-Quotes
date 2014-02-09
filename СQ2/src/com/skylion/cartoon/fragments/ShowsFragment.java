@@ -12,7 +12,7 @@ import com.skylion.cartoon.data.Show;
 import com.skylion.cartoon.data.ShowsList;
 import com.skylion.cartoon.util.controllers.LanguageController;
 import com.skylion.cartoon.util.controllers.LanguageController.LanguageChanger;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -84,7 +84,7 @@ public class ShowsFragment extends CoreFragment implements LanguageChanger {
 			drawerImage.setBackgroundColor(Color.parseColor("#ff7400"));
 		}
 
-		getSherlockActivity().getSupportActionBar().setSelectedNavigationItem(getLanguage().ordinal());
+		//getSherlockActivity().getSupportActionBar().setSelectedNavigationItem(getLanguage().ordinal());
 
 		contentList.setOnScrollListener(new OnScrollListener() {
 			@Override

@@ -9,7 +9,7 @@ import com.skylion.cartoon.data.ShowsList;
 import com.skylion.cartoon.messages.QuizDialog;
 import com.skylion.cartoon.util.PreferencesLoader;
 import com.skylion.cartoon.util.controllers.LanguageController;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -154,7 +154,7 @@ public class QuizFragment extends SherlockFragment implements OnClickListener {
 
 		currentLanguage = LanguageController.getCurrentLanguage();
 
-		getSherlockActivity().getSupportActionBar().setSelectedNavigationItem(currentLanguage.ordinal());
+		//getSherlockActivity().getSupportActionBar().setSelectedNavigationItem(currentLanguage.ordinal());
 		
 	}
 

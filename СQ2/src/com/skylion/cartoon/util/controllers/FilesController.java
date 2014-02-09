@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 public class FilesController {
 
-    private final static String TQ_DIRECTORY_NAME = "Top Quotes/";
-    private final static String TQ_DIRECTORY_PATH = "/mnt/sdcard/" + TQ_DIRECTORY_NAME;
+    private final static String TQ_DIRECTORY_NAME = "Cartoon Quotes/";
+    private final static String CQ_DIRECTORY_PATH = Environment.getExternalStorageDirectory().getPath() + TQ_DIRECTORY_NAME;
 
     public static void saveScore(Context context, String fileName, String content) {
 	if (SDCardOK(context)) {
@@ -27,7 +27,7 @@ public class FilesController {
 	    }
 	    File scoresFile = Environment.getExternalStorageDirectory();
 	    try {
-		BufferedWriter fwd = new BufferedWriter(new FileWriter(new File(TQ_DIRECTORY_PATH + fileName), true));
+		BufferedWriter fwd = new BufferedWriter(new FileWriter(new File(CQ_DIRECTORY_PATH + fileName), true));
 
 		if (scoresFile.canWrite()) {
 		    fwd.append(content + "\n");
@@ -42,7 +42,7 @@ public class FilesController {
     public static ArrayList<String> loadScoresFromFile(Context context) {
 	ArrayList<String> result = null;
 	if (SDCardOK(context)) {
-	    File dir = new File(TQ_DIRECTORY_PATH);
+	    File dir = new File(CQ_DIRECTORY_PATH);
 
 	    // Get the text file
 	    File file = new File(dir, "scores.txt");
@@ -73,7 +73,7 @@ public class FilesController {
 	    }
 	    File scoresFile = Environment.getExternalStorageDirectory();
 	    try {
-		BufferedWriter fwd = new BufferedWriter(new FileWriter(new File(TQ_DIRECTORY_PATH + fileName), true));
+		BufferedWriter fwd = new BufferedWriter(new FileWriter(new File(CQ_DIRECTORY_PATH + fileName), true));
 
 		if (scoresFile.canWrite()) {
 		    fwd.append(content + "***");
@@ -89,7 +89,7 @@ public class FilesController {
 	ArrayList<String> result = new ArrayList<String>();
 	ArrayList<String> ratedQuotesList = new ArrayList<String>();
 	if (SDCardOK(context)) {
-	    File dir = new File(TQ_DIRECTORY_PATH);
+	    File dir = new File(CQ_DIRECTORY_PATH);
 	    File file = new File(dir, fileName);
 	    try {
 
@@ -117,7 +117,7 @@ public class FilesController {
     }
 
     public static void clearFile(String fileName) {
-	File dir = new File(TQ_DIRECTORY_PATH);
+	File dir = new File(CQ_DIRECTORY_PATH);
 	File file = new File(dir, fileName);
 	if (file.exists()) {
 	    file.delete();

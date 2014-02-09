@@ -3,7 +3,7 @@ package com.skylion.cartoon.util;
 import com.skylion.cartoon.entity.User;
 import com.skylion.cartoon.util.controllers.DailyNotificationController;
 import com.skylion.cartoon.util.controllers.LanguageController;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 

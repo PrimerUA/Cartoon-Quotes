@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
 import com.skylion.cartoon.util.PreferencesLoader;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 
 public class NewsScreen extends Activity {
 

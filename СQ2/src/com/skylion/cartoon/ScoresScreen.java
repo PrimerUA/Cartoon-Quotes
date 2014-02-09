@@ -6,7 +6,7 @@ import com.skylion.cartoon.constants.ConstantsFacade;
 import com.skylion.cartoon.util.PreferencesLoader;
 import com.skylion.cartoon.util.controllers.FilesController;
 import com.skylion.cartoon.util.providers.ScoresProvider;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;

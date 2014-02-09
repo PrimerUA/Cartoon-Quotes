@@ -19,7 +19,7 @@ import com.google.android.gms.plus.PlusClient;
 import com.skylion.cartoon.entity.User;
 import com.skylion.cartoon.server.Executor;
 import com.skylion.cartoon.util.PreferencesLoader;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 
 public class AuthScreen extends SherlockActivity implements OnClickListener, GooglePlayServicesClient.ConnectionCallbacks,
 		GooglePlayServicesClient.OnConnectionFailedListener {
@@ -44,8 +44,8 @@ public class AuthScreen extends SherlockActivity implements OnClickListener, Goo
 		authImage = (ImageView) findViewById(R.id.auth_image);
 		authLayout = (LinearLayout) findViewById(R.id.auth_layout);
 
-		plusClient = new PlusClient.Builder(this, this, this).setScopes(Scopes.PLUS_LOGIN)
-				.setVisibleActivities("http://schemas.google.com/AddActivity", "http://schemas.google.com/BuyActivity").build();
+		plusClient = new PlusClient.Builder(this, this, this).setVisibleActivities("http://schemas.google.com/AddActivity",
+				"http://schemas.google.com/BuyActivity").build();
 
 		loginButton = (SignInButton) findViewById(R.id.login_button);
 		loginButton.setOnClickListener(this);

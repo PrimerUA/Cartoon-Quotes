@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.skylion.cartoon.entity.UserQuote;
 import com.skylion.cartoon.util.PreferencesLoader;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;

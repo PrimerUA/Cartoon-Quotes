@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.skylion.cartoon.util.PreferencesLoader;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 
 public class WelcomeScreen extends Activity {
 

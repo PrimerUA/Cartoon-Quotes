@@ -23,7 +23,7 @@ import com.skylion.cartoon.entity.User;
 import com.skylion.cartoon.util.PreferencesLoader;
 import com.skylion.cartoon.util.controllers.LanguageController;
 import com.skylion.cartoon.util.providers.ConnectionProvider;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 
 public class PreferencesScreen extends SherlockActivity implements OnCheckedChangeListener {
 
@@ -33,8 +33,8 @@ public class PreferencesScreen extends SherlockActivity implements OnCheckedChan
 	private RadioButton themeWhiteRadio;
 	private RadioButton themeOrangeRadio;
 
-	private RadioButton languageRusRadio;
-	private RadioButton languageEngRadio;
+//	private RadioButton languageRusRadio;
+//	private RadioButton languageEngRadio;
 
 	private CheckBox dailyCheckBox;
 
@@ -58,15 +58,15 @@ public class PreferencesScreen extends SherlockActivity implements OnCheckedChan
 	}
 
 	private void loadPreferencesOnScreen() {
-		LanguageController language = PreferencesLoader.getLanguage();
+//		LanguageController language = PreferencesLoader.getLanguage();
 		int theme = PreferencesLoader.getTheme();
 		Boolean daily = PreferencesLoader.isDaily();
 
-		if (language == LanguageController.RUS) {
-			languageRusRadio.setChecked(true);
-		} else {
-			languageEngRadio.setChecked(true);
-		}
+//		if (language == LanguageController.RUS) {
+//			languageRusRadio.setChecked(true);
+//		} else {
+//			languageEngRadio.setChecked(true);
+//		}
 
 		if (theme == 0) {
 			themePinkRadio.setChecked(true);
@@ -100,8 +100,8 @@ public class PreferencesScreen extends SherlockActivity implements OnCheckedChan
 		themeWhiteRadio = (RadioButton) findViewById(R.id.PreferencesScreen_themeRadioWhite);
 		themeOrangeRadio = (RadioButton) findViewById(R.id.PreferencesScreen_themeRadioOrange);
 
-		languageRusRadio = (RadioButton) findViewById(R.id.PreferencesScreen_languageRadioRussian);
-		languageEngRadio = (RadioButton) findViewById(R.id.PreferencesScreen_languageRadioEnglish);
+//		languageRusRadio = (RadioButton) findViewById(R.id.PreferencesScreen_languageRadioRussian);
+//		languageEngRadio = (RadioButton) findViewById(R.id.PreferencesScreen_languageRadioEnglish);
 
 		dailyCheckBox = (CheckBox) findViewById(R.id.PreferencesScreen_dailyCheckBox);
 
@@ -125,20 +125,20 @@ public class PreferencesScreen extends SherlockActivity implements OnCheckedChan
 		themeWhiteRadio.setOnCheckedChangeListener(themeChangeListener);
 		themePinkRadio.setOnCheckedChangeListener(themeChangeListener);
 
-		OnCheckedChangeListener languageChangeListener = new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				if (languageRusRadio.isChecked()) {
-					PreferencesLoader.setLanguage(LanguageController.RUS);
-				} else {
-					PreferencesLoader.setLanguage(LanguageController.ENG);
-				}
-			}
-		};
-
-		languageRusRadio.setOnCheckedChangeListener(languageChangeListener);
-		languageEngRadio.setOnCheckedChangeListener(languageChangeListener);
+//		OnCheckedChangeListener languageChangeListener = new OnCheckedChangeListener() {
+//
+//			@Override
+//			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//				if (languageRusRadio.isChecked()) {
+//					PreferencesLoader.setLanguage(LanguageController.RUS);
+//				} else {
+//					PreferencesLoader.setLanguage(LanguageController.ENG);
+//				}
+//			}
+//		};
+//
+//		languageRusRadio.setOnCheckedChangeListener(languageChangeListener);
+//		languageEngRadio.setOnCheckedChangeListener(languageChangeListener);
 
 		dailyCheckBox.setOnCheckedChangeListener(this);
 

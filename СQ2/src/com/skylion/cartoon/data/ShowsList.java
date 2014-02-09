@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.skylion.cartoon.constants.ConstantsFacade;
 import com.skylion.cartoon.util.providers.ShowsProvider;
-import com.skylion.cartoons.R;
+import com.skylion.cartoon.R;
 import android.content.Context;
 
 public class ShowsList {
