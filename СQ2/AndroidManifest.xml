@@ -65,7 +65,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.skylion.cartoon.messages.DailyNotificationilyNotification"
+            android:name="com.skylion.cartoon.messages.DailyNotification"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -121,7 +121,6 @@
         <activity
             android:name="com.skylion.cartoon.NewQuoteScreen"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

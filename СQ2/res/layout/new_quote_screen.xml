@@ -32,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:freezesText="true"
             android:hint="@string/user_quote_title_hint"
             android:inputType="textPersonName" />
 
@@ -49,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:freezesText="true"
             android:hint="@string/user_quote_text_hint"
             android:inputType="textMultiLine" />
 
@@ -71,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:freezesText="true"
                 android:inputType="number"
                 android:maxLength="2" />
         </LinearLayout>
@@ -94,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:freezesText="true"
                 android:inputType="number"
                 android:maxLength="2" />
         </LinearLayout>

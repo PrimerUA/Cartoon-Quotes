@@ -73,15 +73,15 @@ public class MainFragment extends CoreFragment implements OnClickListener {
 	@Override
 	protected void updateContent() {
 		if (getTheme() == 0) {
-			drawerImage.setBackgroundColor(Color.parseColor("#c92064"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
 			newQuoteButton.setBackgroundResource(R.drawable.quote_selector_pink);
 			refreshButton.setBackgroundResource(R.drawable.quote_selector_pink);
 		} else if (getTheme() == 1) {
-			drawerImage.setBackgroundColor(Color.DKGRAY);
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
 			newQuoteButton.setBackgroundResource(R.drawable.quote_selector_white);
 			refreshButton.setBackgroundResource(R.drawable.quote_selector_white);
 		} else {
-			drawerImage.setBackgroundColor(Color.parseColor("#ff7400"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
 			newQuoteButton.setBackgroundResource(R.drawable.quote_selector_orange);
 			refreshButton.setBackgroundResource(R.drawable.quote_selector_orange);
 		}
@@ -113,11 +113,11 @@ public class MainFragment extends CoreFragment implements OnClickListener {
 		drawerImage = (ImageView) rootView.findViewById(R.id.MainFragment_drawerImage);
 
 		if (getTheme() == 0) {
-			drawerImage.setBackgroundColor(Color.parseColor("#c92064"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
 		} else if (getTheme() == 1) {
-			drawerImage.setBackgroundColor(Color.DKGRAY);
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
 		} else {
-			drawerImage.setBackgroundColor(Color.parseColor("#ff7400"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
 		}
 
 		//getSherlockActivity().getSupportActionBar().setSelectedNavigationItem(getLanguage().ordinal());

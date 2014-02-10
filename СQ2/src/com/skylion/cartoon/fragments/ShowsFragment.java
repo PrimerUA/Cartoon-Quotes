@@ -77,11 +77,11 @@ public class ShowsFragment extends CoreFragment implements LanguageChanger {
 		titlesList = new ArrayList<String>();
 
 		if (getTheme() == 0) {
-			drawerImage.setBackgroundColor(Color.parseColor("#c92064"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
 		} else if (getTheme() == 1) {
-			drawerImage.setBackgroundColor(Color.DKGRAY);
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
 		} else {
-			drawerImage.setBackgroundColor(Color.parseColor("#ff7400"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
 		}
 
 		//getSherlockActivity().getSupportActionBar().setSelectedNavigationItem(getLanguage().ordinal());
@@ -128,11 +128,11 @@ public class ShowsFragment extends CoreFragment implements LanguageChanger {
 	@Override
 	protected void updateContent() {
 		if (getTheme() == 0) {
-			drawerImage.setBackgroundColor(Color.parseColor("#c92064"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
 		} else if (getTheme() == 1) {
-			drawerImage.setBackgroundColor(Color.DKGRAY);
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
 		} else {
-			drawerImage.setBackgroundColor(Color.parseColor("#ff7400"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
 		}
 		addQuotesOnScreen();
 	}

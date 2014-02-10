@@ -80,14 +80,14 @@ public class TopFragment extends CoreFragment implements LanguageChanger {
 				.findViewById(R.id.TopFragment_drawerImage);
 
 		if (getTheme() == 0) {
-			drawerImage.setBackgroundColor(Color.parseColor("#c92064"));
-			clearButton.setBackgroundResource(R.drawable.quote_selector_pink);
-		} else if (getTheme() == 1){
-			drawerImage.setBackgroundColor(Color.DKGRAY);
-			clearButton.setBackgroundResource(R.drawable.quote_selector_white);
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
+			clearButton.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
+		} else if (getTheme() == 1) {
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
+			clearButton.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
 		} else {
-			drawerImage.setBackgroundColor(Color.parseColor("#ff7400"));
-			clearButton.setBackgroundResource(R.drawable.quote_selector_orange);
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
+			clearButton.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
 		}
 
 		clearButton.setOnClickListener(new OnClickListener() {
@@ -183,11 +183,14 @@ public class TopFragment extends CoreFragment implements LanguageChanger {
 	@Override
 	protected void updateContent() {
 		if (getTheme() == 0) {
-			clearButton.setBackgroundResource(R.drawable.quote_selector_pink);
-		} else if (getTheme() == 1){
-			clearButton.setBackgroundResource(R.drawable.quote_selector_white);
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
+			clearButton.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
+		} else if (getTheme() == 1) {
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
+			clearButton.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
 		} else {
-			clearButton.setBackgroundResource(R.drawable.quote_selector_orange);
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
+			clearButton.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
 		}
 		contentLayout.removeAllViews();
 		addQuotesOnScreen();

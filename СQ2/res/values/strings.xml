@@ -4,6 +4,7 @@
     <string name="app_name">Cartoon Quotes</string>
     <string name="app_market_url">https://play.google.com/store/apps/details?id=com.skylion.cartoon</string>
     <string name="admob_publisher_id">a150206aac320cc</string>
+    <string name="sad_publisher_id">52f9218987a3f01c00000000</string>
     <string name="menu_label">Меню</string>
     <string name="fragment_stream">Поток цитат</string>
     <string name="fragment_quiz">Викторина</string>
@@ -88,9 +89,9 @@
     <string name="prefs_title">Настройки</string>
     <string name="theme_chooser">Темы оформления</string>
     <string name="default_language">Язык по умолчанию</string>
-    <string name="theme_pink">Розовая пантера</string>
-    <string name="theme_white">Прозрачная сталь</string>
-    <string name="theme_orange">Оранжевый свет</string>
+    <string name="theme_pink">Красная</string>
+    <string name="theme_white">Зеленая</string>
+    <string name="theme_orange">Желтая</string>
     <string name="language_rus">Русский</string>
     <string name="language_eng">Английский</string>
     <string name="more_title">Еще от автора</string>

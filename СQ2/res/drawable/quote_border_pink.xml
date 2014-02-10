@@ -11,7 +11,7 @@
                 android:right="2dp"
                 android:top="2dp" />
 
-            <solid android:color="#aac92064" />
+            <solid android:color="@color/theme_red" />
         </shape>
     </item>
     <!-- "background shadow" -->

@@ -1,6 +1,5 @@
 package com.skylion.cartoon;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -17,8 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
@@ -36,10 +33,9 @@ import com.skylion.cartoon.util.AppRater;
 import com.skylion.cartoon.util.PreferencesLoader;
 import com.skylion.cartoon.util.controllers.BackgroundController;
 import com.skylion.cartoon.util.controllers.DailyNotificationController;
-import com.skylion.cartoon.util.controllers.LanguageController;
 import com.skylion.cartoon.util.providers.ConnectionProvider;
 import com.skylion.cartoon.util.providers.QuoteRatingsProvider;
-import com.skylion.cartoon.R;
+import com.startad.lib.SADView;
 
 public class MainScreen extends SherlockFragmentActivity {
 
@@ -52,6 +48,7 @@ public class MainScreen extends SherlockFragmentActivity {
 	private String[] mShowsTitles;
 
 	private AdView adView;
+	protected SADView sadView;
 
 	private static int selectedItem;
 
@@ -74,15 +71,18 @@ public class MainScreen extends SherlockFragmentActivity {
 
 		getSupportFragmentManager().beginTransaction().add(R.id.content_frame, new MainFragment()).commit();
 
-
 		adView = new AdView(this, AdSize.SMART_BANNER, getString(R.string.admob_publisher_id));
 		((LinearLayout) findViewById(R.id.content_frame)).addView(adView);
-		adView.loadAd(new AdRequest());
-		
+		// adView.loadAd(new AdRequest());
+
+		this.sadView = new SADView(this, getString(R.string.sad_publisher_id));
+		((LinearLayout) findViewById(R.id.content_frame)).addView(this.sadView);
+		this.sadView.loadAd(SADView.LANGUAGE_RU);
+
 		SharedPreferences.Editor editor = prefs.edit();
 		try {
 			int currentVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
-			if(currentVersion > prefs.getInt("version", 0)) {
+			if (currentVersion > prefs.getInt("version", 0)) {
 				editor.putInt("version", currentVersion);
 				editor.commit();
 				startActivity(new Intent(this, NewsScreen.class));
@@ -90,7 +90,7 @@ public class MainScreen extends SherlockFragmentActivity {
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+
 		if (isFirstLauch()) {
 			editor.putBoolean("firstLaunch", false);
 			editor.putBoolean("loggedIn", false);
@@ -111,22 +111,26 @@ public class MainScreen extends SherlockFragmentActivity {
 		getSupportActionBar().setHomeButtonEnabled(true);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-//		Context context = getSupportActionBar().getThemedContext();
-//		ArrayAdapter<CharSequence> listAdapter = ArrayAdapter.createFromResource(context, R.array.language_list, R.layout.sherlock_spinner_item);
-//		listAdapter.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
-//		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-//		getSupportActionBar().setListNavigationCallbacks(listAdapter, new OnNavigationListener() {
-//
-//			@Override
-//			public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-//				if (itemPosition == 0) {
-//					LanguageController.setCurrentLanguage(LanguageController.RUS);
-//				} else {
-//					LanguageController.setCurrentLanguage(LanguageController.ENG);
-//				}
-//				return true;
-//			}
-//		});
+		// Context context = getSupportActionBar().getThemedContext();
+		// ArrayAdapter<CharSequence> listAdapter =
+		// ArrayAdapter.createFromResource(context, R.array.language_list,
+		// R.layout.sherlock_spinner_item);
+		// listAdapter.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
+		// getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+		// getSupportActionBar().setListNavigationCallbacks(listAdapter, new
+		// OnNavigationListener() {
+		//
+		// @Override
+		// public boolean onNavigationItemSelected(int itemPosition, long
+		// itemId) {
+		// if (itemPosition == 0) {
+		// LanguageController.setCurrentLanguage(LanguageController.RUS);
+		// } else {
+		// LanguageController.setCurrentLanguage(LanguageController.ENG);
+		// }
+		// return true;
+		// }
+		// });
 	}
 
 	private void initScreen() {
@@ -269,17 +273,20 @@ public class MainScreen extends SherlockFragmentActivity {
 	protected void onResume() {
 		super.onResume();
 		if (PreferencesLoader.getTheme() == 0) {
-			mDrawerList.setBackgroundColor(Color.parseColor("#b40066"));
+			mDrawerList.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
 		} else if (PreferencesLoader.getTheme() == 1) {
-			mDrawerList.setBackgroundColor(Color.parseColor("#919191"));
+			mDrawerList.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
 		} else {
-			mDrawerList.setBackgroundColor(Color.parseColor("#ff7400"));
+			mDrawerList.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
 		}
 	}
 
 	@Override
 	public void onDestroy() {
-		adView.destroy();
+		if (adView != null)
+			adView.destroy();
+		if (this.sadView != null)
+			this.sadView.destroy();
 		super.onDestroy();
 	}
 

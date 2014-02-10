@@ -50,7 +50,7 @@ public class PreferencesLoader {
 			language = LanguageController.ENG;
 		}
 		LanguageController.setCurrentLanguage(language);
-		theme = sharedPreferences.getInt(context.getString(R.string.prefs_theme), 2);
+		theme = sharedPreferences.getInt(context.getString(R.string.prefs_theme), 1);
 		daily = sharedPreferences.getBoolean(context.getString(R.string.prefs_daily), true);
 		
 		User.getInstance().setLoggedIn(sharedPreferences.getBoolean("loggedIn", false));

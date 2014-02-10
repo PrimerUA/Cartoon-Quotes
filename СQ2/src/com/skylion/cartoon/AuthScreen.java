@@ -70,7 +70,7 @@ public class AuthScreen extends SherlockActivity implements OnClickListener, Goo
 
 	@Override
 	public void onConnected(Bundle arg0) {
-		Toast.makeText(this, getString(R.string.google_connected) + "\n" + plusClient.getCurrentPerson().getDisplayName(), Toast.LENGTH_SHORT).show();
+		Toast.makeText(getApplicationContext(), getString(R.string.google_connected) + "\n" + plusClient.getCurrentPerson().getDisplayName(), Toast.LENGTH_SHORT).show();
 
 		User.getInstance().setName(plusClient.getCurrentPerson().getDisplayName());
 		User.getInstance().setEmail(plusClient.getAccountName());

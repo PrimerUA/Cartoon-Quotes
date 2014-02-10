@@ -79,9 +79,7 @@ public class QuizFragment extends SherlockFragment implements OnClickListener {
 		Random rand = new Random();
 		Integer randInt = rand.nextInt(ShowsList.getList().size());
 		if (currentLanguage == LanguageController.ENG) {
-			while (randInt == 12 || randInt == 13 || randInt == 24 || randInt == 27) {
 				randInt = rand.nextInt(ShowsList.getList().size());
-			}
 		}
 		Show show = showsList.get(randInt);
 		correctAnswer = show.getTitle(currentLanguage);
@@ -89,9 +87,7 @@ public class QuizFragment extends SherlockFragment implements OnClickListener {
 		for (int i = 0; i < 3; i++) {
 			randInt = rand.nextInt(ShowsList.getList().size());
 			if (currentLanguage == LanguageController.ENG) {
-				while (randInt == 12 || randInt == 13 || randInt == 24 || randInt == 27) {
 					randInt = rand.nextInt(ShowsList.getList().size());
-				}
 			}
 			Show otherShow = showsList.get(randInt);
 			while (titles.contains(otherShow.getTitle(currentLanguage))) {
@@ -194,7 +190,7 @@ public class QuizFragment extends SherlockFragment implements OnClickListener {
 			answersLayout.setBackgroundResource(R.drawable.quote_border_pink);
 			score.setBackgroundResource(R.drawable.quote_border_pink);
 			attempts.setBackgroundResource(R.drawable.quote_border_pink);
-			drawerImage.setBackgroundColor(Color.parseColor("#c92064"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
 			firstAnswer.setBackgroundResource(R.drawable.quote_selector_pink);
 			secondAnswer.setBackgroundResource(R.drawable.quote_selector_pink);
 			thirdAnswer.setBackgroundResource(R.drawable.quote_selector_pink);
@@ -202,7 +198,7 @@ public class QuizFragment extends SherlockFragment implements OnClickListener {
 		} else if (PreferencesLoader.getTheme() == 1) {
 			quote.setBackgroundResource(R.drawable.quote_border_white);
 			answersLayout.setBackgroundResource(R.drawable.quote_border_white);
-			drawerImage.setBackgroundColor(Color.DKGRAY);
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
 			score.setBackgroundResource(R.drawable.quote_border_white);
 			attempts.setBackgroundResource(R.drawable.quote_border_white);
 			firstAnswer.setBackgroundResource(R.drawable.quote_selector_white);
@@ -212,7 +208,7 @@ public class QuizFragment extends SherlockFragment implements OnClickListener {
 		} else {
 			quote.setBackgroundResource(R.drawable.quote_border_orange);
 			answersLayout.setBackgroundResource(R.drawable.quote_border_orange);
-			drawerImage.setBackgroundColor(Color.parseColor("#ff7400"));
+			drawerImage.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));
 			score.setBackgroundResource(R.drawable.quote_border_orange);
 			attempts.setBackgroundResource(R.drawable.quote_border_orange);
 			firstAnswer.setBackgroundResource(R.drawable.quote_selector_orange);
