@@ -10,7 +10,7 @@ import android.net.Uri;
 
 public class AppRater {
 	// private final static String APP_TITLE = "Top Quotes";
-	private final static String APP_PNAME = "top.quotes.pkg";
+	private final static String APP_PNAME = "com.skylion.cartoon";
 
 	private final static int DAYS_UNTIL_PROMPT = 1;
 	private final static int LAUNCHES_UNTIL_PROMPT = 3;

@@ -67,6 +67,7 @@ public class MainFragment extends CoreFragment implements OnClickListener {
 //			}
 //		});
 
+		updateContent();
 		return rootView;
 	}
 

@@ -98,7 +98,7 @@
     <string name="daily_quote">Цитата дня при запуске приложения</string>
     <string name="daily_screen_title">Цитата дня</string>
     <string name="please_rate">Если Вам нравится это приложение, пожалуйста оцените его. Благодарим за поддержку!</string>
-    <string name="do_rate_it">Оценить Top Quotes</string>
+    <string name="do_rate_it">Оценить Cartoon Quotes</string>
     <string name="remind">Напомнить позже</string>
     <string name="lazy">Спасибо, но лень</string>
     <string name="more_brain">Brain Break</string>
@@ -121,7 +121,7 @@
     <string name="more_blog_text">Новости, статьи об Андроид, путешествиях, бесплатная музыка и многое другое в этом блоге</string>
     <string name="more_vk_text">Все про Андроид здесь. Множество обзоров, подарков и полезной информации. Подписывайтесь!</string>
     <string name="more_vktq_button">Цитаты Вконтакте</string>
-    <string name="rate_title_text">Оцените Top Quotes</string>
+    <string name="rate_title_text">Оцените Cartoon Quotes</string>
     <string name="rate_content_text">Если Вам понравился цитатник Cartoon Quotes, пожалуйста, оцените его в 5 звезд на следующем экране. Вы также можете указать какой мультсериал стоит в дальнейшем добавить в Вашем отзыве:)</string>
     <string name="more_screen_title">Еще от автора</string>
     <string name="welcome_screen_main_title">Добро пожаловать в\nCartoon Quotes!</string>
