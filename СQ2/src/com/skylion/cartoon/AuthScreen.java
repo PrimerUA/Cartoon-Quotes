@@ -2,6 +2,7 @@ package com.skylion.cartoon;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.IntentSender;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +17,12 @@ import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.plus.PlusClient;
+import com.parse.LogInCallback;
+import com.parse.ParseAnonymousUtils;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 import com.skylion.cartoon.entity.User;
-import com.skylion.cartoon.server.Executor;
 import com.skylion.cartoon.util.PreferencesLoader;
 import com.skylion.cartoon.R;
 
@@ -31,6 +36,8 @@ public class AuthScreen extends SherlockActivity implements OnClickListener, Goo
 
 	private ImageView authImage;
 	private LinearLayout authLayout;
+	
+	private ProgressDialog myProgressDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,7 @@ public class AuthScreen extends SherlockActivity implements OnClickListener, Goo
 	}
 
 	private void initScreen() {
+		myProgressDialog = new ProgressDialog(this);
 		authImage = (ImageView) findViewById(R.id.auth_image);
 		authLayout = (LinearLayout) findViewById(R.id.auth_layout);
 
@@ -70,25 +78,37 @@ public class AuthScreen extends SherlockActivity implements OnClickListener, Goo
 
 	@Override
 	public void onConnected(Bundle arg0) {
-		Toast.makeText(getApplicationContext(), getString(R.string.google_connected) + "\n" + plusClient.getCurrentPerson().getDisplayName(), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, getString(R.string.google_connected) + "\n" + plusClient.getCurrentPerson().getDisplayName(), Toast.LENGTH_SHORT).show();
 
 		User.getInstance().setName(plusClient.getCurrentPerson().getDisplayName());
 		User.getInstance().setEmail(plusClient.getAccountName());
 
-		int userId = new Executor().register(User.getInstance());
-		if (userId != -1) {
-			User.getInstance().setId(userId);
-			User.getInstance().setLoggedIn(true);
-			PreferencesLoader.saveUserData();
-			finish();
-		} else {
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle(R.string.registration_failed_title);
-			builder.setMessage(R.string.connection_check_text);
-			builder.setIcon(R.drawable.ic_launcher);
-			builder.setCancelable(true);
-			builder.show();
-		}
+		ParseUser user = new ParseUser();
+		user.setUsername(User.getInstance().getName());
+		user.setEmail(User.getInstance().getEmail());
+		user.setPassword("pass");
+		user.signUpInBackground(new SignUpCallback() {
+			public void done(ParseException e) {
+				ParseAnonymousUtils.logIn(new LogInCallback() {
+					@Override
+					public void done(ParseUser user, ParseException e) {
+						if (e == null) {
+							User.getInstance().setLoggedIn(true);
+							PreferencesLoader.getInstance().saveUserData();
+							finish();
+						} else {
+							AlertDialog.Builder builder = new AlertDialog.Builder(AuthScreen.this);
+							builder.setTitle(R.string.registration_failed_title);
+							builder.setMessage(getString(R.string.connection_check_text) + " Error: " + e.getMessage());
+							builder.setIcon(R.drawable.ic_launcher);
+							builder.setCancelable(true);
+							builder.show();
+						}
+						myProgressDialog.dismiss();
+					}
+				});
+			}
+		});
 	}
 
 	@Override

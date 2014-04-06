@@ -34,7 +34,7 @@ public abstract class CoreFragment extends SherlockFragment {
     }
 
     public int getTheme() {
-	return PreferencesLoader.getTheme();
+	return PreferencesLoader.getInstance().getTheme();
     }
 
 }

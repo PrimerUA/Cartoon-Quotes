@@ -42,7 +42,7 @@ public class DailyScreen extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		PreferencesLoader.initPrefs(this);
+		PreferencesLoader.getInstance().initPrefs(this);
 		QuoteRatingsProvider.initRatings(this);
 		ShowsList.initShows(this);
 	}

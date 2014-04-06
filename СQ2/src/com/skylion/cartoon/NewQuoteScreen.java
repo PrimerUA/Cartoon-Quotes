@@ -17,9 +17,12 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.skylion.cartoon.entity.User;
 import com.skylion.cartoon.entity.UserQuote;
-import com.skylion.cartoon.server.Executor;
 import com.skylion.cartoon.util.PreferencesLoader;
 import com.skylion.cartoon.R;
 
@@ -70,9 +73,9 @@ public class NewQuoteScreen extends SherlockActivity {
 			}
 		});
 
-		if (PreferencesLoader.getTheme() == 0) {
+		if (PreferencesLoader.getInstance().getTheme() == 0) {
 			contentLayout.setBackgroundResource(R.drawable.quote_border_pink);
-		} else if (PreferencesLoader.getTheme() == 1) {
+		} else if (PreferencesLoader.getInstance().getTheme() == 1) {
 			contentLayout.setBackgroundResource(R.drawable.quote_border_white);
 		} else {
 			contentLayout.setBackgroundResource(R.drawable.quote_border_orange);
@@ -96,7 +99,10 @@ public class NewQuoteScreen extends SherlockActivity {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				doPostQuote();
+				if (ParseUser.getCurrentUser() != null && User.getInstance().isLoggedIn())
+					doPostQuote();
+				else
+					startActivity(new Intent(NewQuoteScreen.this, AuthScreen.class));
 			}
 		});
 		builder.show();
@@ -104,37 +110,34 @@ public class NewQuoteScreen extends SherlockActivity {
 
 	protected void doPostQuote() {
 		final ProgressDialog myProgressDialog = ProgressDialog.show(this, getString(R.string.connection), getString(R.string.connection_posting_quote), true);
-		new Thread() {
-			public void run() {
-				runOnUiThread(new Runnable() {
-					@Override
-					public void run() {
-						User user = User.getInstance();
-						if (user.isLoggedIn() && user.getId() != -1) {
-							UserQuote quote = new UserQuote();
-							quote.setTitle(titleText.getText().toString()).setText(quoteText.getText().toString()).setUserId(user.getId())
-									.setLanguage(languageSpinner.getSelectedItemPosition());
-							if ("".equals(seasonText.getText().toString()))
-								quote.setSeason(0);
-							else
-								quote.setSeason(Integer.valueOf(seasonText.getText().toString()));
-							if ("".equals(episodeText.getText().toString()))
-								quote.setEpisode(0);
-							else
-								quote.setEpisode(Integer.valueOf(episodeText.getText().toString()));
-							if (new Executor().sendQuote(quote) == true) {
-								showSuccessDialog();
-							} else {
-								showErrorDialog();
-							}
-						} else {
-							startActivity(new Intent(NewQuoteScreen.this, AuthScreen.class));
-						}
-					}
-				});
+		ParseObject userQuote = new ParseObject("UserQuote");
+		userQuote.put("title", titleText.getText().toString());
+		userQuote.put("text", quoteText.getText().toString());
+		userQuote.put("season", "".equals(seasonText.getText().toString()) ? "" : seasonText.getText().toString());
+		userQuote.put("episode", "".equals(episodeText.getText().toString()) ? "" : episodeText.getText().toString());
+		userQuote.put("language", languageSpinner.getSelectedItemPosition());
+		userQuote.put("user", User.getInstance().getName());
+		userQuote.put("type", 0);
+		userQuote.saveInBackground(new SaveCallback() {
+
+			@Override
+			public void done(ParseException e) {
 				myProgressDialog.dismiss();
+				if (e == null)
+					showSuccessDialog();
+				else
+					showErrorDialog(e);
 			}
-		}.start();
+		});
+	}
+	
+	private void showErrorDialog(ParseException e) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.user_quote_failed_title);
+		builder.setMessage(getString(R.string.connection_check_text) + " Error: "+ e.getLocalizedMessage());
+		builder.setIcon(R.drawable.ic_launcher);
+		builder.setCancelable(true);
+		builder.show();
 	}
 
 	private void showErrorDialog() {

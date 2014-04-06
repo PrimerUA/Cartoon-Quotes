@@ -20,7 +20,6 @@ import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.ads.AdRequest;
 import com.google.ads.AdSize;
 import com.google.ads.AdView;
 import com.skylion.cartoon.constants.ConstantsFacade;
@@ -59,7 +58,7 @@ public class MainScreen extends SherlockFragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_screen);
 
-		PreferencesLoader.initPrefs(this);
+		PreferencesLoader.getInstance().initPrefs(this);
 		QuoteRatingsProvider.initRatings(this);
 		ShowsList.initShows(this);
 		DailyNotificationController.initNotification(this);
@@ -272,9 +271,9 @@ public class MainScreen extends SherlockFragmentActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if (PreferencesLoader.getTheme() == 0) {
+		if (PreferencesLoader.getInstance().getTheme() == 0) {
 			mDrawerList.setBackgroundColor(Color.parseColor(getString(R.color.theme_red)));
-		} else if (PreferencesLoader.getTheme() == 1) {
+		} else if (PreferencesLoader.getInstance().getTheme() == 1) {
 			mDrawerList.setBackgroundColor(Color.parseColor(getString(R.color.theme_green)));
 		} else {
 			mDrawerList.setBackgroundColor(Color.parseColor(getString(R.color.theme_yellow)));

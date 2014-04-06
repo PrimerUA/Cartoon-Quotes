@@ -26,7 +26,7 @@ public class DailyNotificationController {
 				PendingIntent.FLAG_UPDATE_CURRENT);
 		notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-		if (PreferencesLoader.isDaily()) {
+		if (PreferencesLoader.getInstance().isDaily()) {
 			if (!isSet) {
 				isSet = startAlarmIntent();
 			}

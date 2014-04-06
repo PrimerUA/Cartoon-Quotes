@@ -55,9 +55,9 @@ public class QuoteViewsProvider {
 		ImageButton shareButton = (ImageButton) view.findViewById(R.id.DailyQuote_shareButton);
 		LinearLayout contentLayout = (LinearLayout) view.findViewById(R.id.DailyQuote_contentLayout);
 
-		if (PreferencesLoader.getTheme() == 0) {
+		if (PreferencesLoader.getInstance().getTheme() == 0) {
 			contentLayout.setBackgroundResource(R.drawable.quote_border_pink);
-		} else if (PreferencesLoader.getTheme() == 1) {
+		} else if (PreferencesLoader.getInstance().getTheme() == 1) {
 			contentLayout.setBackgroundResource(R.drawable.quote_border_white);
 		} else {
 			contentLayout.setBackgroundResource(R.drawable.quote_border_orange);
@@ -100,9 +100,9 @@ public class QuoteViewsProvider {
 		ImageButton shareButton = (ImageButton) view.findViewById(R.id.DailyQuote_shareButton);
 		LinearLayout contentLayout = (LinearLayout) view.findViewById(R.id.DailyQuote_contentLayout);
 
-		if (PreferencesLoader.getTheme() == 0) {
+		if (PreferencesLoader.getInstance().getTheme() == 0) {
 			contentLayout.setBackgroundResource(R.drawable.quote_border_pink);
-		} else if (PreferencesLoader.getTheme() == 1) {
+		} else if (PreferencesLoader.getInstance().getTheme() == 1) {
 			contentLayout.setBackgroundResource(R.drawable.quote_border_white);
 		} else {
 			contentLayout.setBackgroundResource(R.drawable.quote_border_orange);
@@ -198,16 +198,16 @@ public class QuoteViewsProvider {
 		final Show show;
 		Random randInt = new Random();
 		Integer random = randInt.nextInt(ShowsList.SHOWS_LIST_SIZE);
-		if (PreferencesLoader.getLanguage() == LanguageController.ENG) {
+		if (PreferencesLoader.getInstance().getLanguage() == LanguageController.ENG) {
 			russianOnlyListGenerate();
 			while (russianOnlyList.contains(random)) {
 				random = randInt.nextInt(ShowsList.SHOWS_LIST_SIZE);
 			}
 		}
 		show = ShowsList.getList().get(random);
-		int item = randInt.nextInt(show.getQuotesList(PreferencesLoader.getLanguage()).size());
-		Quote quote = show.getQuote(item, PreferencesLoader.getLanguage());
-		dailyQuote = new DailyQuote(show.getTitle(PreferencesLoader.getLanguage()), quote);
+		int item = randInt.nextInt(show.getQuotesList(PreferencesLoader.getInstance().getLanguage()).size());
+		Quote quote = show.getQuote(item, PreferencesLoader.getInstance().getLanguage());
+		dailyQuote = new DailyQuote(show.getTitle(PreferencesLoader.getInstance().getLanguage()), quote);
 		return dailyQuote;
 	}
 

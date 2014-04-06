@@ -1,9 +1,14 @@
 package com.skylion.cartoon.fragments;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.skylion.cartoon.NewQuoteScreen;
 import com.skylion.cartoon.adapters.QuoteListAdapter;
 import com.skylion.cartoon.adapters.UserQuoteListAdapter;
@@ -12,7 +17,6 @@ import com.skylion.cartoon.data.Quote;
 import com.skylion.cartoon.data.Show;
 import com.skylion.cartoon.data.ShowsList;
 import com.skylion.cartoon.entity.UserQuote;
-import com.skylion.cartoon.server.Executor;
 import com.skylion.cartoon.util.controllers.LanguageController;
 import com.skylion.cartoon.util.controllers.LanguageController.LanguageChanger;
 import com.skylion.cartoon.util.providers.ConnectionProvider;
@@ -21,6 +25,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,6 +35,7 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -41,7 +47,7 @@ public class MainFragment extends CoreFragment implements OnClickListener {
 
 	private ImageView drawerImage;
 
-	private List<UserQuote> userQuotesList;
+	private List<ParseObject> userQuotesList;
 	private List<Quote> quotesList;
 	private List<String> titlesList;
 
@@ -101,7 +107,7 @@ public class MainFragment extends CoreFragment implements OnClickListener {
 		}
 
 		quotesList = new ArrayList<Quote>();
-		userQuotesList = new ArrayList<UserQuote>();
+		userQuotesList = new ArrayList<ParseObject>();
 		titlesList = new ArrayList<String>();
 
 		newQuoteButton = (Button) rootView.findViewById(R.id.MainFragment_newQuoteButton);
@@ -123,97 +129,59 @@ public class MainFragment extends CoreFragment implements OnClickListener {
 
 		//getSherlockActivity().getSupportActionBar().setSelectedNavigationItem(getLanguage().ordinal());
 
-		contentList.setOnScrollListener(new OnScrollListener() {
-			@Override
-			public void onScrollStateChanged(AbsListView view, int scrollState) {
-			}
-
-			private int lastSavedFirst = -1;
-
-			@Override
-			public void onScroll(final AbsListView view, final int first, final int visible, final int total) {
-				if (!isEnd && (visible < total) && (first + visible == total) && (first != lastSavedFirst)) {
-					lastSavedFirst = first;
-					addItemsOnScreen();
-				}
-			}
-		});
+//		contentList.setOnScrollListener(new OnScrollListener() {
+//			@Override
+//			public void onScrollStateChanged(AbsListView view, int scrollState) {
+//			}
+//
+//			private int lastSavedFirst = -1;
+//
+//			@Override
+//			public void onScroll(final AbsListView view, final int first, final int visible, final int total) {
+//				if (!isEnd && (visible < total) && (first + visible == total) && (first != lastSavedFirst)) {
+//					lastSavedFirst = first;
+//					addItemsOnScreen();
+//				}
+//			}
+//		});
 	}
 
 	@Override
 	protected void addQuotesOnScreen() {
 		if (ConnectionProvider.isConnectionAvailable(getActivity())) {
+			((LinearLayout) rootView.findViewById(R.id.MainFragment_onlineLayout)).setVisibility(View.VISIBLE);
 			final ProgressDialog myProgressDialog = ProgressDialog.show(getActivity(), getString(R.string.connection),
 					getString(R.string.connection_loading_quote), true);
-			new Thread() {
-				public void run() {
-					getActivity().runOnUiThread(new Runnable() {
-						@Override
-						public void run() {
-							doLoadContent();
-							myProgressDialog.dismiss();
-						}
-					});
+			ParseQuery<ParseObject> query = ParseQuery.getQuery("UserQuote");
+			query.whereEqualTo("type", 1);
+			if (getLanguage() == LanguageController.RUS)
+				query.whereEqualTo("language", 0);
+			else
+				query.whereEqualTo("language", 1);
+			query.findInBackground(new FindCallback<ParseObject>() {
+				public void done(List<ParseObject> quotesList, ParseException e) {
+					if (e == null) {
+						myProgressDialog.dismiss();
+						userQuotesList = quotesList;
+						Collections.reverse(userQuotesList);
+						contentList.setAdapter(new UserQuoteListAdapter(getActivity(), (ArrayList<ParseObject>) userQuotesList));
+					} else {
+						Log.d("quotes", "Error: " + e.getMessage());
+					}
 				}
-			}.start();
+			});
 		} else {
 			doShowContent();
 		}
 	}
 
 	private void doShowContent() {
-		newQuoteButton.setVisibility(View.GONE);
-		refreshButton.setVisibility(View.GONE);
+		((LinearLayout) rootView.findViewById(R.id.MainFragment_onlineLayout)).setVisibility(View.GONE);
 		quotesList.clear();
 		updateQuoteList(itemsQuantity);
 		contentList.setAdapter(new QuoteListAdapter(getActivity(), (ArrayList<String>) titlesList, (ArrayList<Quote>) quotesList));
 	}
 
-	private void doLoadContent() {
-		isEnd = false;
-
-		newQuoteButton.setVisibility(View.VISIBLE);
-		refreshButton.setVisibility(View.VISIBLE);
-
-		userQuotesList = new Executor().list(0, itemsQuantity, LanguageController.getCurrentLanguage().ordinal());
-		contentList.setAdapter(new UserQuoteListAdapter(getActivity(), (ArrayList<UserQuote>) userQuotesList));
-	}
-
-	protected void addItemsOnScreen() {
-		if (ConnectionProvider.isConnectionAvailable(getActivity())) {
-			final ProgressDialog myProgressDialog = ProgressDialog.show(getActivity(), getString(R.string.connection),
-					getString(R.string.connection_loading_quote), true);
-			new Thread() {
-				public void run() {
-					getActivity().runOnUiThread(new Runnable() {
-						@Override
-						public void run() {
-							doAddItems();
-							myProgressDialog.dismiss();
-						}
-					});
-				}
-			}.start();
-		} else {
-			doAddContent();
-		}
-	}
-
-	private void doAddContent() {
-		updateQuoteList(itemsQuantity);
-		((QuoteListAdapter) contentList.getAdapter()).notifyDataSetChanged();
-	}
-
-	protected void doAddItems() {
-		List<UserQuote> newPosts = new Executor().list(userQuotesList.size(), itemsQuantity, LanguageController.getCurrentLanguage().ordinal());
-		if (newPosts.size() == 0) {
-			isEnd = true;
-			Toast.makeText(getActivity(), getString(R.string.all_items_loaded), Toast.LENGTH_SHORT).show();
-		} else {
-			userQuotesList.addAll(newPosts);
-			((UserQuoteListAdapter) contentList.getAdapter()).notifyDataSetChanged();
-		}
-	}
 
 	private void updateQuoteList(int itemsQuantity) {
 		for (int i = 0; i < itemsQuantity; i++) {
